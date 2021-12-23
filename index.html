@@ -1,0 +1,67 @@
+<view style="padding-bottom:50rpx;">
+    <block wx:if="{{!hasNoLocation}}">
+      <block wx:if="{{newUserGoods.listStatus !== Constant.listStatus.NODATA}}">
+        <view class="newUserGoods">
+
+			<view class="newUserGoods-head">
+				<c-image class="newUserGoods-left" src="{{imgCdn}}/miniso/new_people/newPeople_left_right.png" lazy-load="{{false}}" mode="aspectFit" style="margin: 40rpx 0 14rpx 0;" />
+				<c-image class="newUserGoods-title" src="{{imgCdn}}/miniso/new-people-index-title1.png" lazy-load="{{false}}" style="margin: 40rpx 0 14rpx 0;" />
+				<c-image class="newUserGoods-right" src="{{imgCdn}}/miniso/new_people/newPeople_left_right.png" lazy-load="{{false}}" mode="aspectFit" style="margin: 40rpx 0 14rpx 0;" />
+			</view>
+
+      <c-image class="newUserGoods-title" src="{{imgCdn}}/miniso/new_people/newPeople_discount_title.png" lazy-load="{{false}}" style="margin: 0rpx 0 14rpx 0;width:750rpx;" />
+
+			<view class="newUserGoods-discount">
+				<view class="text"></view>
+				<view class="text-name">
+					5折起，超多爆款
+				</view>
+				<view class="text"></view>
+			</view>
+
+          <c-list
+            listStatus="{{newUserGoods.listStatus}}"
+            skeletonType="{{1}}"
+            footerTextStyles="color:#fff;"
+          >
+            <c-goods-list
+              id="newUserGoodsList"
+              list="{{newUserGoods.list}}"
+              type="{{1}}"
+              data-type="newUser"
+              bind:itemOnTap="goodsItemOnTap"
+              bind:addToCart="addToCartHandle"
+            />
+          </c-list>
+        </view>
+      </block>
+      <block wx:if="{{recommendGoods.listStatus !== Constant.listStatus.NODATA}}">
+        <view class="recommendGoods">
+
+			<view class="newUserGoods-head">
+				<c-image class="newUserGoods-left" src="{{imgCdn}}/miniso/new_people/newPeople_left_right.png" lazy-load="{{false}}" mode="aspectFit" style="margin: 35rpx 0 25rpx 0;" />
+				<c-image class="recommendGoods-title" src="{{imgCdn}}/miniso/new-people-index-title2.png" lazy-load="{{false}}" style="margin: 35rpx 0 25rpx 0;" />
+				<c-image class="newUserGoods-right" src="{{imgCdn}}/miniso/new_people/newPeople_left_right.png" lazy-load="{{false}}" mode="aspectFit" style="margin: 35rpx 0 25rpx 0;" />
+			</view>
+
+
+          <c-list
+            listStatus="{{recommendGoods.listStatus}}"
+            footerStatus="{{recommendGoods.footerStatus}}"
+            skeletonType="{{1}}"
+            footerTextStyles="color:#fff;"
+          >
+            <c-goods-list
+              id="recommendGoodsList"
+              list="{{recommendGoods.list}}"
+              type="{{2}}"
+              data-type="recommend"
+              bind:itemOnTap="goodsItemOnTap"
+              bind:addToCart="addToCartHandle"
+              bind:widthFixListOnRenderDone="recommendGoodsListOnRenderDone"
+            />
+          </c-list>
+        </view>
+      </block>
+    </block>
+  </view>
