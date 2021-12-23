@@ -23,20 +23,20 @@
 <!--                    <view class="text"></view>-->
 <!--                </view>-->
 
-<!--                <c-list-->
-<!--                        listStatus="{{newUserGoods.listStatus}}"-->
-<!--                        skeletonType="{{1}}"-->
-<!--                        footerTextStyles="color:#fff;"-->
-<!--                >-->
-<!--                    <c-goods-list-->
-<!--                            id="newUserGoodsList"-->
-<!--                            list="{{newUserGoods.list}}"-->
-<!--                            type="{{1}}"-->
-<!--                            data-type="newUser"-->
-<!--                            bind:itemOnTap="goodsItemOnTap"-->
-<!--                            bind:addToCart="addToCartHandle"-->
-<!--                    />-->
-<!--                </c-list>-->
+                <c-list
+                        listStatus="{{newUserGoods.listStatus}}"
+                        skeletonType="{{1}}"
+                        footerTextStyles="color:#fff;"
+                >
+                    <c-goods-list
+                            id="newUserGoodsList"
+                            list="{{newUserGoods.list}}"
+                            type="{{1}}"
+                            data-type="newUser"
+                            bind:itemOnTap="goodsItemOnTap"
+                            bind:addToCart="addToCartHandle"
+                    />
+                </c-list>
             </view>
         </block>
         <block wx:if="{{recommendGoods.listStatus !== Constant.listStatus.NODATA}}">
